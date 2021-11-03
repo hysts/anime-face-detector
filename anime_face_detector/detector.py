@@ -49,6 +49,8 @@ class LandmarkDetector:
     def _init_pose_model(config: mmcv.Config,
                          checkpoint_path: Union[str, pathlib.Path],
                          device: str, flip_test: bool) -> nn.Module:
+        if isinstance(checkpoint_path, pathlib.Path):
+            checkpoint_path = checkpoint_path.as_posix()
         model = init_pose_model(config, checkpoint_path, device=device)
         model.cfg.model.test_cfg.flip_test = flip_test
         return model
@@ -59,6 +61,8 @@ class LandmarkDetector:
                                                             pathlib.Path]],
                             device: str) -> Optional[nn.Module]:
         if config is not None:
+            if isinstance(checkpoint_path, pathlib.Path):
+                checkpoint_path = checkpoint_path.as_posix()
             model = init_detector(config, checkpoint_path, device=device)
         else:
             model = None
