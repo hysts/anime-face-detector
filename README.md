@@ -10,6 +10,9 @@ and [mmpose](https://github.com/open-mmlab/mmpose).
 (To avoid copyright issues, I use generated images by the
 [TADNE](https://thisanimedoesnotexist.ai/) model here.)
 
+The model detects near-frontal anime faces and predicts 28 landmark points.
+![](assets/landmarks.jpg)
+
 ## Installation
 
 ```bash
