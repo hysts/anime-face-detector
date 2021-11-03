@@ -68,6 +68,11 @@ print(preds[0])
         [2.3378748e+03, 1.7118135e+03, 9.7880816e-01]], dtype=float32)}
 ```
 
+### Pretrained models
+
+[Here](https://github.com/hysts/anime-face-detector/releases/tag/v0.0.1) are the pretrained models.
+(They will be automatically downloaded when you use them.)
+
 ## Links
 ### General
 - https://github.com/open-mmlab/mmdetection
