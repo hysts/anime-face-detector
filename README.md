@@ -13,6 +13,12 @@ and [mmpose](https://github.com/open-mmlab/mmpose).
 The model detects near-frontal anime faces and predicts 28 landmark points.
 ![](assets/landmarks.jpg)
 
+The result of k-means clustering of landmarks detected in real images:
+![](assets/cluster_pts.png)
+
+The mean images of real images belonging to each cluster:
+![](assets/cluster_mean.jpg)
+
 ## Installation
 
 ```bash
