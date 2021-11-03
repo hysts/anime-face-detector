@@ -142,6 +142,6 @@ class LandmarkDetector:
                     'specified. So the entire image is treated as the face '
                     'region.')
                 h, w = image.shape[:2]
-                boxes = [np.array([0, 0, w - 1, h - 1])]
+                boxes = [np.array([0, 0, w - 1, h - 1, 1])]
         box_list = [{'bbox': box} for box in boxes]
         return self._detect_landmarks(image, box_list)

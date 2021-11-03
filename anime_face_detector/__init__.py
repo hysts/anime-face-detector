@@ -37,7 +37,7 @@ def create_detector(face_detector_name: str = 'yolov3',
                     landmark_model_name='hrnetv2',
                     device: str = 'cuda:0',
                     flip_test: bool = True,
-                    box_scale_factor: float = 1.1):
+                    box_scale_factor: float = 1.1) -> LandmarkDetector:
     assert face_detector_name in ['yolov3', 'faster-rcnn']
     assert landmark_model_name in ['hrnetv2']
     detector_config_path = get_config_path(face_detector_name)
