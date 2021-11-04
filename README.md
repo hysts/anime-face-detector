@@ -30,6 +30,8 @@ mim install mmpose
 pip install anime-face-detector
 ```
 
+This package is tested only on Ubuntu.
+
 ## Usage
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hysts/anime-face-detector/blob/main/demo.ipynb)
 
