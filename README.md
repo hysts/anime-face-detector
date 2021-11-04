@@ -23,9 +23,9 @@ The mean images of real images belonging to each cluster:
 
 ```bash
 pip install openmim
-mim instlal mmcv-full
-mim instlal mmdet
-mim instlal mmpose
+mim install mmcv-full
+mim install mmdet
+mim install mmpose
 
 pip install anime-face-detector
 ```

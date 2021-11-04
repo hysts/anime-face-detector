@@ -20,7 +20,7 @@ setup(
     name='anime-face-detector',
     version='0.0.2',
     author='hysts',
-    url='https://github.com/hysts/anime_face_detector',
+    url='https://github.com/hysts/anime-face-detector',
     python_requires='>=3.7',
     install_requires=_get_requirements('requirements.txt'),
     packages=find_packages(exclude=('tests', )),
