@@ -18,7 +18,7 @@ def _get_requirements(path):
 
 setup(
     name='anime-face-detector',
-    version='0.0.3',
+    version='0.0.4',
     author='hysts',
     url='https://github.com/hysts/anime-face-detector',
     python_requires='>=3.7',

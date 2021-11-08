@@ -6,12 +6,12 @@ This is an anime face detector using
 [mmdetection](https://github.com/open-mmlab/mmdetection)
 and [mmpose](https://github.com/open-mmlab/mmpose).
 
-![](assets/output.jpg)
+![](https://raw.githubusercontent.com/hysts/anime-face-detector/main/assets/output.jpg)
 (To avoid copyright issues, I use generated images by the
 [TADNE](https://thisanimedoesnotexist.ai/) model here.)
 
 The model detects near-frontal anime faces and predicts 28 landmark points.
-![](assets/landmarks.jpg)
+![](https://raw.githubusercontent.com/hysts/anime-face-detector/main/assets/landmarks.jpg)
 
 The result of k-means clustering of landmarks detected in real images:
 ![](assets/cluster_pts.png)
