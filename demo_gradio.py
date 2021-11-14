@@ -54,6 +54,7 @@ def main():
                         choices=['cuda:0', 'cpu'])
     parser.add_argument('--face-score-threshold', type=float, default=0.5)
     parser.add_argument('--landmark-score-threshold', type=float, default=0.3)
+    parser.add_argument('--score-slider-step', type=float, default=0.05)
     parser.add_argument('--port', type=int)
     parser.add_argument('--debug', action='store_true')
     parser.add_argument('--share', action='store_true')
@@ -79,11 +80,16 @@ def main():
         func,
         [
             gr.inputs.Image(type='file', label='Input'),
-            gr.inputs.Slider(
-                0, 1, step=0.05, default=0.5, label='Face Score Threshold'),
-            gr.inputs.Slider(
-                0, 1, step=0.05, default=0.3,
-                label='Landmark Score Threshold'),
+            gr.inputs.Slider(0,
+                             1,
+                             step=args.score_slider_step,
+                             default=args.face_score_threshold,
+                             label='Face Score Threshold'),
+            gr.inputs.Slider(0,
+                             1,
+                             step=args.score_slider_step,
+                             default=args.landmark_score_threshold,
+                             label='Landmark Score Threshold'),
         ],
         gr.outputs.Image(type='pil', label='Output'),
         server_port=args.port,
@@ -91,7 +97,11 @@ def main():
         description=description,
         article=article,
         examples=[
-            [sample_path.as_posix(), 0.5, 0.3],
+            [
+                sample_path.as_posix(),
+                args.face_score_threshold,
+                args.landmark_score_threshold,
+            ],
         ],
         enable_queue=True,
         live=args.live,
