@@ -84,6 +84,13 @@ print(preds[0])
 [Here](https://github.com/hysts/anime-face-detector/releases/tag/v0.0.1) are the pretrained models.
 (They will be automatically downloaded when you use them.)
 
+## [Gradio](https://github.com/gradio-app/gradio) demo
+
+```bash
+pip install gradio
+python demo_gradio.py
+```
+
 ## Links
 ### General
 - https://github.com/open-mmlab/mmdetection
