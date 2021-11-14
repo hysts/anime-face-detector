@@ -69,8 +69,8 @@ def main():
         return image_pil
 
     title = 'hysts/anime-face-detector'
-    description = 'demo for hysts/anime-face-detector. To use it, simply upload your image, or click one of the examples to load them. Read more at the links below.'
-    article = "<a href='https://github.com/hysts/anime-face-detector'>Github Repo</a>"
+    description = 'Demo for hysts/anime-face-detector. To use it, simply upload your image, or click one of the examples to load them. Read more at the links below.'
+    article = "<a href='https://github.com/hysts/anime-face-detector'>GitHub Repo</a>"
 
     gr.Interface(
         detect,
