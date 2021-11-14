@@ -1,4 +1,5 @@
 import argparse
+import pathlib
 
 import cv2
 import gradio as gr
@@ -26,9 +27,11 @@ def main():
     parser.add_argument('--share', action='store_true')
     args = parser.parse_args()
 
-    torch.hub.download_url_to_file(
-        'https://raw.githubusercontent.com/hysts/anime-face-detector/main/assets/input.jpg',
-        'input.jpg')
+    sample_path = pathlib.Path('input.jpg')
+    if not sample_path.exists():
+        torch.hub.download_url_to_file(
+            'https://raw.githubusercontent.com/hysts/anime-face-detector/main/assets/input.jpg',
+            sample_path.as_posix())
 
     detector = anime_face_detector.create_detector(args.detector,
                                                    device=args.device)
@@ -78,7 +81,7 @@ def main():
         description=description,
         article=article,
         examples=[
-            ['input.jpg'],
+            [sample_path.as_posix()],
         ],
         enable_queue=True,
     ).launch(debug=args.debug, share=args.share)
