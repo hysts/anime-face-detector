@@ -11,9 +11,8 @@ import torch
 import anime_face_detector
 
 
-def detect(img, detector: anime_face_detector.LandmarkDetector,
-           face_score_threshold: float,
-           landmark_score_threshold: float) -> PIL.Image.Image:
+def detect(img, face_score_threshold: float, landmark_score_threshold: float,
+           detector: anime_face_detector.LandmarkDetector) -> PIL.Image.Image:
     image = cv2.imread(img.name)
     preds = detector(image)
 
@@ -58,6 +57,7 @@ def main():
     parser.add_argument('--port', type=int)
     parser.add_argument('--debug', action='store_true')
     parser.add_argument('--share', action='store_true')
+    parser.add_argument('--live', action='store_true')
     args = parser.parse_args()
 
     sample_path = pathlib.Path('input.jpg')
@@ -68,11 +68,7 @@ def main():
 
     detector = anime_face_detector.create_detector(args.detector,
                                                    device=args.device)
-    func = functools.partial(
-        detect,
-        detector=detector,
-        face_score_threshold=args.face_score_threshold,
-        landmark_score_threshold=args.landmark_score_threshold)
+    func = functools.partial(detect, detector=detector)
     func = functools.update_wrapper(func, detect)
 
     title = 'hysts/anime-face-detector'
@@ -81,16 +77,24 @@ def main():
 
     gr.Interface(
         func,
-        [gr.inputs.Image(type='file', label='Input')],
+        [
+            gr.inputs.Image(type='file', label='Input'),
+            gr.inputs.Slider(
+                0, 1, step=0.05, default=0.5, label='Face Score Threshold'),
+            gr.inputs.Slider(
+                0, 1, step=0.05, default=0.3,
+                label='Landmark Score Threshold'),
+        ],
         gr.outputs.Image(type='pil', label='Output'),
         server_port=args.port,
         title=title,
         description=description,
         article=article,
         examples=[
-            [sample_path.as_posix()],
+            [sample_path.as_posix(), 0.5, 0.3],
         ],
         enable_queue=True,
+        live=args.live,
     ).launch(debug=args.debug, share=args.share)
 
 
