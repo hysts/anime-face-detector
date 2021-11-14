@@ -16,7 +16,7 @@ FACE_SCORE_THRESH = 0.5
 LANDMARK_SCORE_THRESH = 0.3
 
 
-def hystsanimedet(img):
+def detect(img):
     image = cv2.imread(img.name)
     preds = detector(image)
 
@@ -50,7 +50,7 @@ title = 'hysts/anime-face-detector'
 description = 'demo for hysts/anime-face-detector. To use it, simply upload your image, or click one of the examples to load them. Read more at the links below.'
 article = "<a href='https://github.com/hysts/anime-face-detector'>Github Repo</a>"
 
-gr.Interface(hystsanimedet, [gr.inputs.Image(type='file', label='Input')],
+gr.Interface(detect, [gr.inputs.Image(type='file', label='Input')],
              gr.outputs.Image(type='pil', label='Output'),
              title=title,
              description=description,
