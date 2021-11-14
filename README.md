@@ -1,5 +1,6 @@
 # Anime Face Detector
 [![PyPI version](https://badge.fury.io/py/anime-face-detector.svg)](https://pypi.org/project/anime-face-detector/)
+[![Downloads](https://pepy.tech/badge/anime-face-detector)](https://pepy.tech/project/anime-face-detector)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hysts/anime-face-detector/blob/main/demo.ipynb)
 
 This is an anime face detector using
