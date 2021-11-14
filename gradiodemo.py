@@ -6,9 +6,6 @@ from PIL import Image
 
 import anime_face_detector
 
-#100% 235M/235M [00:01<00:00, 130MB/s]
-#100% 37.5M/37.5M [00:00<00:00, 120MB/s]
-
 torch.hub.download_url_to_file(
     'https://raw.githubusercontent.com/hysts/anime-face-detector/main/assets/input.jpg',
     'input.jpg')
@@ -19,7 +16,7 @@ FACE_SCORE_THRESH = 0.5
 LANDMARK_SCORE_THRESH = 0.3
 
 
-def hystsanimedet(img, aus_resize=512):
+def hystsanimedet(img):
     image = cv2.imread(img.name)
     preds = detector(image)
 
@@ -46,7 +43,6 @@ def hystsanimedet(img, aus_resize=512):
     res = cv2.cvtColor(res, cv2.COLOR_BGR2RGB)
 
     image_pil = Image.fromarray(res)
-    #image_pil = image_pil.resize(aus_resize, Image.BICUBIC)
     return image_pil
 
 
