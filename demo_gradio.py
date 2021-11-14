@@ -11,7 +11,9 @@ import torch
 import anime_face_detector
 
 
-def detect(img, detector, face_score_threshold, landmark_score_threshold):
+def detect(img, detector: anime_face_detector.LandmarkDetector,
+           face_score_threshold: float,
+           landmark_score_threshold: float) -> PIL.Image.Image:
     image = cv2.imread(img.name)
     preds = detector(image)
 
