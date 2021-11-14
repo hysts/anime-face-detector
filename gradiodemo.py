@@ -1,8 +1,8 @@
 import cv2
 import gradio as gr
 import numpy as np
+import PIL.Image
 import torch
-from PIL import Image
 
 import anime_face_detector
 
@@ -42,7 +42,7 @@ def detect(img):
             cv2.circle(res, tuple(pt), lt, color, cv2.FILLED)
     res = cv2.cvtColor(res, cv2.COLOR_BGR2RGB)
 
-    image_pil = Image.fromarray(res)
+    image_pil = PIL.Image.fromarray(res)
     return image_pil
 
 
