@@ -2,6 +2,7 @@
 [![PyPI version](https://badge.fury.io/py/anime-face-detector.svg)](https://pypi.org/project/anime-face-detector/)
 [![Downloads](https://pepy.tech/badge/anime-face-detector)](https://pepy.tech/project/anime-face-detector)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hysts/anime-face-detector/blob/main/demo.ipynb)
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-orange)](https://huggingface.co/spaces/hysts/anime-face-detector-demo)
 
 This is an anime face detector using
 [mmdetection](https://github.com/open-mmlab/mmdetection)
@@ -85,10 +86,15 @@ print(preds[0])
 [Here](https://github.com/hysts/anime-face-detector/releases/tag/v0.0.1) are the pretrained models.
 (They will be automatically downloaded when you use them.)
 
-## [Gradio](https://github.com/gradio-app/gradio) demo
+## Demo (using [Gradio](https://github.com/gradio-app/gradio))
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-orange)](https://huggingface.co/spaces/hysts/anime-face-detector-demo)
 
+### Run locally
 ```bash
 pip install gradio
+git clone https://github.com/hysts/anime-face-detector
+cd anime-face-detector
+
 python demo_gradio.py
 ```
 
