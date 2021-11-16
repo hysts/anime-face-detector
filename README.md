@@ -3,6 +3,7 @@
 [![Downloads](https://pepy.tech/badge/anime-face-detector)](https://pepy.tech/project/anime-face-detector)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hysts/anime-face-detector/blob/main/demo.ipynb)
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-orange)](https://huggingface.co/spaces/hysts/anime-face-detector-demo)
+[![MIT License](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/licenses/MIT)
 
 This is an anime face detector using
 [mmdetection](https://github.com/open-mmlab/mmdetection)
