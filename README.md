@@ -18,10 +18,10 @@ The model detects near-frontal anime faces and predicts 28 landmark points.
 ![](https://raw.githubusercontent.com/hysts/anime-face-detector/main/assets/landmarks.jpg)
 
 The result of k-means clustering of landmarks detected in real images:
-![](assets/cluster_pts.png)
+![](https://raw.githubusercontent.com/hysts/anime-face-detector/main/assets/cluster_pts.png)
 
 The mean images of real images belonging to each cluster:
-![](assets/cluster_mean.jpg)
+![](https://raw.githubusercontent.com/hysts/anime-face-detector/main/assets/cluster_mean.jpg)
 
 ## Installation
 
