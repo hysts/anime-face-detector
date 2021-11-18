@@ -4,6 +4,7 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hysts/anime-face-detector/blob/main/demo.ipynb)
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-orange)](https://huggingface.co/spaces/hysts/anime-face-detector-demo)
 [![MIT License](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/hysts/anime-face-detector.svg?style=flat-square&logo=github&label=Stars&logoColor=white)](https://github.com/hysts/anime-face-detector)
 
 This is an anime face detector using
 [mmdetection](https://github.com/open-mmlab/mmdetection)
