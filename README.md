@@ -116,4 +116,4 @@ python demo_gradio.py
 
 ### Others
 - https://www.gwern.net/Faces
-- https://thisanimedoesnotexist.ai/
+- https://thisanimedoesnotexist.ai
