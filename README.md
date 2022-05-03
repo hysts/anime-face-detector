@@ -89,7 +89,7 @@ print(preds[0])
 (They will be automatically downloaded when you use them.)
 
 ## Demo (using [Gradio](https://github.com/gradio-app/gradio))
-[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-orange)](https://huggingface.co/spaces/hysts/anime-face-detector-demo)
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-orange)](https://huggingface.co/spaces/hysts/anime-face-detector)
 
 ### Run locally
 ```bash
