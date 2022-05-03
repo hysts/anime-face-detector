@@ -106,13 +106,13 @@ python demo_gradio.py
 - https://github.com/open-mmlab/mmpose
 
 ### Anime face detection
-- https://github.com/zymk9/yolov5_anime
+- https://github.com/zymk9/yolov5_anime [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-orange)](https://huggingface.co/spaces/hysts/yolov5_anime)
 - https://github.com/qhgz2013/anime-face-detector
 - https://github.com/cheese-roll/light-anime-face-detector
-- https://github.com/nagadomi/lbpcascade_animeface
+- https://github.com/nagadomi/lbpcascade_animeface [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-orange)](https://huggingface.co/spaces/hysts/lbpcascade_animeface)
 
 ### Anime face landmark detection
-- https://github.com/kanosawa/anime_face_landmark_detection
+- https://github.com/kanosawa/anime_face_landmark_detection [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-orange)](https://huggingface.co/spaces/hysts/anime_face_landmark_detection)
 
 ### Others
 - https://www.gwern.net/Faces
