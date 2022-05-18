@@ -100,6 +100,17 @@ cd anime-face-detector
 python demo_gradio.py
 ```
 
+## Citation
+If you find this repo useful for your research, please consider citing it:
+```bibtex
+@misc{anime-face-detector,
+  author = {hysts},
+  title = {Anime Face Detector},
+  year = {2021},
+  howpublished = {\url{https://github.com/hysts/anime-face-detector}}
+}
+```
+
 ## Links
 ### General
 - https://github.com/open-mmlab/mmdetection
