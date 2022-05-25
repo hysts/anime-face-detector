@@ -28,8 +28,8 @@ repos:
   hooks:
     - id: mypy
       args: ['--ignore-missing-imports']
-- repo: https://github.com/pre-commit/mirrors-yapf
-  rev: v0.31.0
+- repo: https://github.com/google/yapf
+  rev: v0.32.0
   hooks:
   - id: yapf
-    args: ['--parallel', '--in-place', '--style={spaces_before_comment: 2}']
+    args: ['--parallel', '--in-place']
