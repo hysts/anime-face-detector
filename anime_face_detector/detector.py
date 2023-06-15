@@ -8,10 +8,16 @@ import cv2
 import mmcv
 import numpy as np
 import torch.nn as nn
+version_prev = True
+try:
+    # Previous versions
+    from mmpose.apis import inference_top_down_pose_model, init_pose_model
+    from mmpose.datasets import DatasetInfo
+except (ModuleNotFoundError, ImportError):
+    version_prev = False
+    from mmpose.apis import inference_topdown as inference_top_down_pose_model
+    from mmpose.apis import init_model as init_pose_model
 from mmdet.apis import inference_detector, init_detector
-from mmpose.apis import inference_top_down_pose_model, init_pose_model
-from mmpose.datasets import DatasetInfo
-
 
 class LandmarkDetector:
     def __init__(
@@ -27,8 +33,11 @@ class LandmarkDetector:
             flip_test: bool = True,
             box_scale_factor: float = 1.1):
         landmark_config = self._load_config(landmark_detector_config_or_path)
-        self.dataset_info = DatasetInfo(
-            landmark_config.dataset_info)  # type: ignore
+        if version_prev:
+            self.dataset_info = DatasetInfo(
+                landmark_config.dataset_info)  # type: ignore
+        else:
+            self.dataset_info = None
         face_detector_config = self._load_config(face_detector_config_or_path)
 
         self.landmark_detector = self._init_pose_model(
@@ -94,13 +103,22 @@ class LandmarkDetector:
     def _detect_landmarks(
             self, image: np.ndarray,
             boxes: list[dict[str, np.ndarray]]) -> list[dict[str, np.ndarray]]:
-        preds, _ = inference_top_down_pose_model(
-            self.landmark_detector,
-            image,
-            boxes,
-            format='xyxy',
-            dataset_info=self.dataset_info,
-            return_heatmap=False)
+        if version_prev:
+            preds, _ = inference_top_down_pose_model(
+                self.landmark_detector,
+                image,
+                boxes,
+                format='xyxy',
+                dataset_info=self.dataset_info,
+                return_heatmap=False
+            )
+        else:
+            preds, _ = inference_top_down_pose_model(
+                self.landmark_detector,
+                image,
+                boxes,
+                bbox_format='xyxy'
+            )
         return preds
 
     @staticmethod
