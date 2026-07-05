@@ -1,0 +1,91 @@
+[project]
+name = "anime-face-detector"
+version = "0.1.0"
+description = "Anime face detection and facial landmark estimation in pure PyTorch"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "hysts" }]
+urls = { Homepage = "https://github.com/hysts/anime-face-detector" }
+license = { file = "LICENSE" }
+dependencies = [
+    "huggingface-hub>=0.30.0",
+    "numpy>=1.26.4",
+    "opencv-python-headless>=4.10.0.84",
+    "safetensors>=0.5.3",
+    "torch>=2.2.0",
+    "torchvision>=0.17.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-xdist>=3.6.1",
+    "ruff>=0.12.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.sdist]
+only-include = ["anime_face_detector"]
+
+[tool.pytest.ini_options]
+addopts = "-n auto"
+
+[tool.ruff]
+line-length = 119
+extend-exclude = [
+    # Vendored OpenMMLab code keeps its upstream formatting so diffs
+    # against the pinned upstream versions stay reviewable.
+    "anime_face_detector/_vendor",
+    # Legacy mm* config files, kept temporarily as the hyperparameter
+    # reference during the pure PyTorch migration.
+    "anime_face_detector/configs",
+    # Runs only in the legacy (Python 3.9) golden-generation environment.
+    "tests/golden/generate_golden.py",
+    # Still written against the old mm*-based API; rewritten at the end of
+    # the migration.
+    "demo_gradio.py",
+    "demo.ipynb",
+]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "COM812", # missing-trailing-comma
+    "D203",   # one-blank-line-before-class
+    "D213",   # multi-line-summary-second-line
+    "E501",   # line-too-long
+    "SIM117", # multiple-with-statements
+    #
+    "D100",    # undocumented-public-module
+    "D101",    # undocumented-public-class
+    "D102",    # undocumented-public-method
+    "D103",    # undocumented-public-function
+    "D104",    # undocumented-public-package
+    "D105",    # undocumented-magic-method
+    "D107",    # undocumented-public-init
+    "EM101",   # raw-string-in-exception
+    "FBT001",  # boolean-type-hint-positional-argument
+    "FBT002",  # boolean-default-value-positional-argument
+    "PGH003",  # blanket-type-ignore
+    "PLR0913", # too-many-arguments
+    "PLR0915", # too-many-statements
+    "TRY003",  # raise-vanilla-args
+]
+unfixable = [
+    "F401", # unused-import
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = [
+    "ANN",     # type annotations add nothing to test signatures
+    "INP001",  # tests are not a package
+    "PLR2004", # magic values are fine in assertions
+    "S101",    # pytest uses assert
+    "SLF001",  # tests exercise private modules on purpose
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
