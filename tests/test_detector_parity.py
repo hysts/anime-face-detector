@@ -13,7 +13,7 @@ import cv2
 import numpy as np
 import pytest
 
-from anime_face_detector import LandmarkDetector, get_checkpoint_path
+from anime_face_detector import LandmarkDetector, get_legacy_checkpoint_path
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 GOLDEN_DIR = REPO_ROOT / "tests" / "golden"
@@ -45,9 +45,9 @@ def detector_name(request):
 @pytest.fixture(scope="session")
 def detector(detector_name):
     return LandmarkDetector(
-        get_checkpoint_path("hrnetv2"),
+        get_legacy_checkpoint_path("hrnetv2"),
         face_detector_name=detector_name,
-        face_detector_checkpoint_path=get_checkpoint_path(detector_name),
+        face_detector_checkpoint_path=get_legacy_checkpoint_path(detector_name),
         device="cpu",
     )
 

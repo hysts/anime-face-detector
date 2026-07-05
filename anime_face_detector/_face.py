@@ -30,6 +30,7 @@ from ._vendor.mmdet import (
     YOLOV3Head,
     YOLOV3Neck,
 )
+from ._weights import load_state_dict_from_path
 
 FACE_DETECTOR_NAMES = ("faster-rcnn", "yolov3")
 PAD_SIZE_DIVISOR = 32
@@ -220,9 +221,7 @@ def load_face_detector(
     else:
         msg = f"model_name must be one of {FACE_DETECTOR_NAMES}, got {model_name!r}"
         raise ValueError(msg)
-    checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=True)
-    state_dict = checkpoint.get("state_dict", checkpoint)
-    model.load_state_dict(state_dict, strict=True)
+    model.load_state_dict(load_state_dict_from_path(checkpoint_path), strict=True)
     model.to(device)
     model.eval()
     return model

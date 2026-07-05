@@ -6,16 +6,40 @@ import warnings
 import cv2
 import numpy as np
 import torch
+from huggingface_hub import hf_hub_download
 
 from ._face import load_face_detector
 from ._landmark import load_landmark_model
 
 WEIGHT_BASE_URL = "https://github.com/hysts/anime-face-detector/releases/download/v0.0.1"
 MODEL_NAMES = ("faster-rcnn", "yolov3", "hrnetv2")
+HF_MODEL_REPOS = {
+    "faster-rcnn": "hysts/anime-face-detector-faster-rcnn",
+    "yolov3": "hysts/anime-face-detector-yolov3",
+    "hrnetv2": "hysts/anime-face-detector-hrnetv2",
+}
 
 
 def get_checkpoint_path(model_name: str) -> pathlib.Path:
-    """Return the local path of a pretrained checkpoint, downloading it if needed."""
+    """Return the local path of a pretrained safetensors checkpoint.
+
+    The file is downloaded from the Hugging Face Hub into the Hub cache
+    if needed.
+    """
+    if model_name not in MODEL_NAMES:
+        msg = f"model_name must be one of {MODEL_NAMES}, got {model_name!r}"
+        raise ValueError(msg)
+    return pathlib.Path(hf_hub_download(HF_MODEL_REPOS[model_name], "model.safetensors"))
+
+
+def get_legacy_checkpoint_path(model_name: str) -> pathlib.Path:
+    """Return the local path of an original mm*-era .pth checkpoint.
+
+    The file is downloaded from the GitHub release into the torch hub
+    cache if needed. These are the checkpoints
+    ``anime-face-detector-convert`` takes as input; ``create_detector``
+    itself uses the safetensors files from the Hugging Face Hub.
+    """
     if model_name not in MODEL_NAMES:
         msg = f"model_name must be one of {MODEL_NAMES}, got {model_name!r}"
         raise ValueError(msg)

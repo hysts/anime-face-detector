@@ -23,6 +23,7 @@ from ._vendor.mmpose import (
     get_affine_transform,
     keypoints_from_heatmaps,
 )
+from ._weights import load_state_dict_from_path
 
 IMAGE_SIZE = (256, 256)
 # Bbox padding factor applied when converting boxes to center/scale
@@ -191,9 +192,7 @@ class LandmarkModel(nn.Module):
 def load_landmark_model(checkpoint_path: str, device: str = "cpu") -> LandmarkModel:
     """Build the landmark model and load a checkpoint with strict keys."""
     model = LandmarkModel()
-    checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=True)
-    state_dict = checkpoint.get("state_dict", checkpoint)
-    model.load_state_dict(state_dict, strict=True)
+    model.load_state_dict(load_state_dict_from_path(checkpoint_path), strict=True)
     model.to(device)
     model.eval()
     return model

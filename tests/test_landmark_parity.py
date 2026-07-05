@@ -15,7 +15,7 @@ import cv2
 import numpy as np
 import pytest
 
-from anime_face_detector import get_checkpoint_path
+from anime_face_detector import get_legacy_checkpoint_path
 from anime_face_detector._landmark import load_landmark_model
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -35,7 +35,7 @@ IMAGE_PATHS = {
 def model():
     # load_landmark_model() uses strict=True, so this fixture also acts as
     # the state_dict key compatibility check.
-    return load_landmark_model(str(get_checkpoint_path("hrnetv2")), device="cpu")
+    return load_landmark_model(str(get_legacy_checkpoint_path("hrnetv2")), device="cpu")
 
 
 @pytest.fixture(scope="session")
