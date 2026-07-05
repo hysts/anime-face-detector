@@ -39,9 +39,6 @@ extend-exclude = [
     # Vendored OpenMMLab code keeps its upstream formatting so diffs
     # against the pinned upstream versions stay reviewable.
     "anime_face_detector/_vendor",
-    # Legacy mm* config files, kept temporarily as the hyperparameter
-    # reference during the pure PyTorch migration.
-    "anime_face_detector/configs",
     # Runs only in the legacy (Python 3.9) golden-generation environment.
     "tests/golden/generate_golden.py",
     # Still written against the old mm*-based API; rewritten at the end of
