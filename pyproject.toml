@@ -44,9 +44,7 @@ extend-exclude = [
     "anime_face_detector/_vendor",
     # Runs only in the legacy (Python 3.9) golden-generation environment.
     "tests/golden/generate_golden.py",
-    # Still written against the old mm*-based API; rewritten at the end of
-    # the migration.
-    "demo_gradio.py",
+    # Colab-style notebook (#@param forms and shell magics).
     "demo.ipynb",
 ]
 
