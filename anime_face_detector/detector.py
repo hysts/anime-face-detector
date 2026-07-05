@@ -94,7 +94,7 @@ class LandmarkDetector:
         self.box_scale_factor = box_scale_factor
 
     def _detect_faces(self, image: np.ndarray) -> list[np.ndarray]:
-        # predicted boxes have the format of [x0, y0, x1, y1, score]
+        # predicted boxes are in [x0, y0, x1, y1, score] format
         boxes = self.face_detector.detect(image)
         # scale boxes by `self.box_scale_factor`
         return self._update_pred_box(boxes)
@@ -138,8 +138,8 @@ class LandmarkDetector:
                 should be of the form [x0, y0, x1, y1, [score]].
 
         Returns: A list of detection results. Each detection result has
-            bounding box of the form [x0, y0, x1, y1, [score]], and landmarks
-            of the form [x, y, score].
+            a bounding box of the form [x0, y0, x1, y1, [score]] and
+            landmarks of the form [x, y, score].
         """
         image = self._load_image(image_or_path)
         if boxes is None:
@@ -147,9 +147,8 @@ class LandmarkDetector:
                 boxes = self._detect_faces(image)
             else:
                 warnings.warn(
-                    "Neither the face detector nor the bounding box is "
-                    "specified. So the entire image is treated as the face "
-                    "region.",
+                    "Neither a face detector nor bounding boxes were given, "
+                    "so the entire image is treated as the face region.",
                     stacklevel=2,
                 )
                 h, w = image.shape[:2]

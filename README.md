@@ -28,7 +28,7 @@ The mean images of real images belonging to each cluster:
 pip install anime-face-detector
 ```
 
-Requires Python 3.12 or later. PyTorch 2.2.0 or later and torchvision are installed as dependencies; if you need a specific CUDA build, install torch/torchvision first following the [official instructions](https://pytorch.org/get-started/locally/).
+Python 3.12 or later is required. PyTorch (2.2.0 or later) and torchvision are installed as dependencies; if you need a specific CUDA build, install them first by following the [official instructions](https://pytorch.org/get-started/locally/).
 
 ## Usage
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hysts/anime-face-detector/blob/main/demo.ipynb)
@@ -38,8 +38,8 @@ import cv2
 
 from anime_face_detector import create_detector
 
-detector = create_detector('yolov3')
-image = cv2.imread('assets/input.jpg')
+detector = create_detector("yolov3")
+image = cv2.imread("assets/input.jpg")
 preds = detector(image)
 print(preds[0])
 ```
@@ -79,14 +79,14 @@ print(preds[0])
 
 ### Pretrained models
 
-The pretrained weights are hosted on the Hugging Face Hub as safetensors files ([faster-rcnn](https://huggingface.co/hysts/anime-face-detector-faster-rcnn), [yolov3](https://huggingface.co/hysts/anime-face-detector-yolov3), [hrnetv2](https://huggingface.co/hysts/anime-face-detector-hrnetv2)) and are downloaded automatically on first use. The original mm*-era `.pth` files remain available in the [v0.0.1 release](https://github.com/hysts/anime-face-detector/releases/tag/v0.0.1); `anime-face-detector-convert` converts such checkpoints (including self-trained ones) to safetensors.
+The pretrained weights are hosted on the Hugging Face Hub as safetensors files ([faster-rcnn](https://huggingface.co/hysts/anime-face-detector-faster-rcnn), [yolov3](https://huggingface.co/hysts/anime-face-detector-yolov3), [hrnetv2](https://huggingface.co/hysts/anime-face-detector-hrnetv2)) and are downloaded automatically on first use. The original `.pth` checkpoints from the mmdetection/mmpose days remain available in the [v0.0.1 release](https://github.com/hysts/anime-face-detector/releases/tag/v0.0.1). The `anime-face-detector-convert` command converts such checkpoints, including self-trained ones, to safetensors.
 
 ## Demo (using [Gradio](https://github.com/gradio-app/gradio))
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-orange)](https://huggingface.co/spaces/hysts/anime-face-detector)
 
 ### Run locally
 ```bash
-pip install gradio
+pip install anime-face-detector gradio
 git clone https://github.com/hysts/anime-face-detector
 cd anime-face-detector
 

@@ -2,10 +2,10 @@
 
 Tolerances: coordinates must match within 0.5 px. Scores and raw heatmap
 values are compared at 1e-2 instead of the originally planned 1e-3: the
-goldens were produced with torch 1.13 whose CPU convolutions differ
-numerically from torch 2.x, which drifts heatmap values by up to ~5e-3
-while leaving decoded coordinates essentially unchanged (<0.3 px on the
-golden images). Layer statistics agree to ~1e-5 (see
+goldens were produced with torch 1.13, whose CPU convolutions differ
+numerically from those of torch 2.x. This shifts heatmap values by up
+to ~5e-3 while leaving decoded coordinates essentially unchanged
+(<0.3 px on the golden images). Layer statistics agree to ~1e-5 (see
 tests/golden/intermediates_hrnetv2.npz).
 """
 
